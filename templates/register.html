@@ -1,0 +1,64 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+<!-- (.container>.row>.col-md-4)-->
+<div class="container">
+    <div class="row form-row">
+        <div class="col-md-4">
+            <h1 class="my-4 text-primary" style="background-color:rgb(231, 49, 170);" style="font-family:verdana;">Register An Account</h1>
+            {% if error_list %}
+            {% for msg in error_list %}
+            <p class="text-danger text-small">
+                {{ msg|e }}
+            </p>
+            {% endfor %}
+            {% endif %}
+            <form class="shadow-lg p-3 rounded bg-light" method="post">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email">
+                  <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">User name</label>
+                    <input type="text" class="form-control" id="username"  name="username" aria-describedby="passHelp">
+                    <div class="form-text" id="passHelp">password should be min 6 chars</div>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="Confirmpass" class="form-label"> Confirm Password</label>
+                    <input type="password" class="form-control" id="Confirmpass" name="confirmpass">
+                  </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<style>
+    .form-row{
+        display: flex;
+        height: 90vh;
+        justify-content: center;
+        align-items: center;
+    }
+    main{
+        background-color: rgb(103, 105, 105);
+        background-image: url(https://images.unsplash.com/photo-1526280524276-51b1c8a46321?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-position: bottom;
+       
+    }
+</style>
+{% endblock %}
+
+
+
+
