@@ -168,7 +168,8 @@ def uploads():
         if filename != '':                                              # if the filename is not empty then
             file_ext = os.path.splitext(filename)[1]                    # get the extension from filename abc.png ['abc','.png']
             if file_ext not in app.config['UPLOAD_EXTENSIONS']:         # if extension is not valid
-                abort(400)                                              # then stop execution else
+                abort(400)   
+                                                                        # then stop execution else
             path = os.path.join(app.config['UPLOAD_PATH'],filename)     # make os compatible path string
             uploaded_file.save(path)                                    # then save the file with original name 
         return redirect(url_for('index'))                               # reload the page to refresh
