@@ -154,7 +154,7 @@ def contactus():
         new_contact = contact(name=name, email=email, subject=subject, message=message)
         db.session.add(new_contact)
         db.session.commit()
-        flash('your details are collected.Thankyou for contacting us,the team will coaordinate you soon', 'success')
+        flash('Your details are collected.Thankyou for contacting us,the team will co-ordinate you soon', 'success')
         return redirect('/')
     else:    
         return render_template('contactus.html')
