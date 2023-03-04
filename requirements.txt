@@ -1,0 +1,6 @@
+numpy==1.16
+mxnet
+pycomposer
+flask
+playsound
+flask-sqlalchemy

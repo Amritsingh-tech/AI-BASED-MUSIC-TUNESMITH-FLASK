@@ -50,10 +50,10 @@ class contact(db.Model):
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/app.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.sqlite'
     app.config['SQLALCHEMY_ECHO'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 2 # 2MB
+    app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 2MB
     app.config['UPLOAD_EXTENSIONS'] = ['.wav', '.mp3']
     app.config['UPLOAD_PATH'] = 'static/uploads/music'
     app.secret_key = 'supersecretkeythatnooneknows'
