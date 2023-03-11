@@ -2,17 +2,72 @@
 
 {% block body %}
 
-<div class="container">
+<div class="container audio-wrapper">
+    <div class="row p-5">
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/test03.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/test09.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/test07.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/town.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/__Bass 2.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+        <div class="col-md-3 mb-3">
+            <midi-player src="/static/midi/Revolta 2.mid" sound-font visualizer="#myVisualizer">
+            </midi-player>
+        </div>
+    </div>
+</div>
+<div class="container vis-wrapper">
     <div class="row">
-        <div class="col-md-12 d-flex p-5" style="justify-content: center">
-            <audio class="" src="/{{path}}" controls></audio>
+        <div class="col-md-12">
+            <midi-visualizer type="piano-roll" id="myVisualizer"></midi-visualizer>
         </div>
     </div>
 </div>
 
 {% endblock %}
 
+{% block js %}
+<script
+    src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
+{% endblock %}
 
 {% block css %}
+<style>
+    .audio-wrapper {}
 
+    .vis-wrapper {
+        background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        /* make scroll bar light green and small */
+        scrollbar-color: #a9eea9 #000000;
+        scrollbar-width: thin;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    main {
+        display: grid;
+        height: calc(100vh - 56px);
+        background-color: azure;
+        overflow-x: auto;
+        place-content: space-between;
+        justify-content: center;
+    }
+</style>
 {% endblock %}
